@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--bootstrap codes start-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--bootstrap codes end-->
     <script src="./logica.js"></script>
     <script src="./pdfmake.min.js"></script>
     <script src="./vfs_fonts.js"></script>
@@ -11,95 +17,110 @@
     <title>Document</title>
 </head>
 <body>
-    <input id="nomePaciente" type="text" placeholder="Nome completo do paciente">
-    <input id="nomeMae" type="text" placeholder="Nome da mae do paciente">
-    <input id="peso" type="text" placeholder="Peso">
-    <input id="altura" type="text" placeholder="Altura">
-    <input id="cpf" type="text" placeholder="CPF">
-    <input id="telefone" type="text" placeholder="telefone">
-    <select id="cid" name="" id="">
-        <option value="N18.0">N18.0 - DOENÇA RENAL EM ESTADIO FINAL</option>
-        <option value="N25.0">N25.0 - OSTEODISTROFIA RENAL</option>
-    </select>
-    <select name="" id="anaminese">
-        <option value="Paciente portador de IRC em programa hemodialitico convencional">Paciente portador de IRC em programa hemodialitico convencional</option>
-        <option value="Paciente portador de IRC em programa de Dialise Peritoneal Ambulatorial Continua (CAPD).">Paciente portador de IRC em programa de Dialise Peritoneal Ambulatorial Continua (CAPD).</option>
-        <option value="Paciente portador de IRC em tratamento conservador.">Paciente portador de IRC em tratamento conservador.</option>
-    </select>
-
-    <select name="" id="emUso">
-        <option value="s">SIM - Em uso</option>
-        <option value="n">NÃO</option>
-    </select>
-
-    <select name="" id="medico">
-        <option value="Eberaldo Severiano Domingos">Eberaldo Severiano Domingos</option>
-    </select>
-
-    <select name="" id="medicamento">
-        <option value="ALFAEPOETINA 2000UI">ALFAEPOETINA 2000UI</option>
-        <option value="ALFAEPOETINA 3000UI">ALFAEPOETINA 3000UI</option>
-        <option value="ALFAEPOETINA 4000UI">ALFAEPOETINA 4000UI</option>
-        <option value="SACARATO DE HIDROXIDO FERRICO">SACARATO DE HIDROXIDO FERRICO</option>
-    </select>
-
-    <select name="" id="dosagem">
-        <option value="AA">ALFAEPOETINA ATAQUE</option>
-        <option value="AM">ALFAEPOETINA MANUTENÇÃO</option>
-        <option value="SA">SACARATO ATAQUE</option>
-        <option value="SM">SACARATO MANUTENÇÃO</option>
-        <option value="CALCITRIOL 30 CP">CALCITRIOL 30 CP</option>
-        <option value="CALCITRIOL 60 CP">CALCITRIOL 60 CP</option>
-        <option value="CINACALCETE 30 CP">CINACALCETE 30 CP</option>
-        <option value="CINACALCETE 60 CP">CINACALCETE 60 CP</option>
-
-    </select>
-
-    <button onclick="adicionarNaTabela()">Adicionar</button>
+    <div>
+        <h3>Informações do paciente</h3>
+        <input id="nomePaciente" type="text" placeholder="Nome completo do paciente">
+        <input id="nomeMae" type="text" placeholder="Nome da mae do paciente">
+        <input id="peso" type="text" placeholder="Peso">
+        <input id="altura" type="text" placeholder="Altura">
+        <input id="cpf" type="text" placeholder="CPF">
+        <input id="telefone" type="text" placeholder="telefone">
+    </div>
 
     <div>
+        <h3>Medicamentos -> LME</h3>
+        <select name="" id="medicamento">
+            <option value="ALFAEPOETINA 2000UI (INJETAVEL)">ALFAEPOETINA 2000UI</option>
+            <option value="ALFAEPOETINA 3000UI (INJETAVEL)">ALFAEPOETINA 3000UI</option>
+            <option value="ALFAEPOETINA 4000UI (INJETAVEL)">ALFAEPOETINA 4000UI</option>
+            <option value="SACARATO DE HIDROXIDO FERRICO">SACARATO DE HIDROXIDO FERRICO</option>
+        </select>
+    
+        <select name="" id="dosagem">
+            <option value="AA">ALFAEPOETINA ATAQUE</option>
+            <option value="AM">ALFAEPOETINA MANUTENÇÃO</option>
+            <option value="SA">SACARATO ATAQUE</option>
+            <option value="SM">SACARATO MANUTENÇÃO</option>
+            <option value="CALCITRIOL 30 CP">CALCITRIOL 30 CP</option>
+            <option value="CALCITRIOL 60 CP">CALCITRIOL 60 CP</option>
+            <option value="CINACALCETE 30 CP">CINACALCETE 30 CP</option>
+            <option value="CINACALCETE 60 CP">CINACALCETE 60 CP</option>
+    
+        </select>
+    
+        <button onclick="adicionarNaTabela()">Adicionar</button>
+    
         <div>
-            <table class="table">
-                <th>Medicamento</th>
-                <th>Quantidade</th>
-                <th>Opções</th>
-                <tbody id="tabela-medicamento">
-                
-                </tbody>
-                
-            </table>
+            <div>
+                <table class="table">
+                    <th>Medicamento</th>
+                    <th>Quantidade</th>
+                    <th>Opções</th>
+                    <tbody id="tabela-medicamento">
+                    
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    
+        <hr>
+    </div>
+
+    <div>
+        <h3>Configurações -> LME</h3>
+        <select id="cid" name="" id="">
+            <option value="N18.0">N18.0 - DOENÇA RENAL EM ESTADIO FINAL</option>
+            <option value="N25.0">N25.0 - OSTEODISTROFIA RENAL</option>
+        </select>
+        <select name="" id="anaminese">
+            <option value="Paciente portador de IRC em programa hemodialitico convencional">Paciente portador de IRC em programa hemodialitico convencional</option>
+            <option value="Paciente portador de IRC em programa de Dialise Peritoneal Ambulatorial Continua (CAPD).">Paciente portador de IRC em programa de Dialise Peritoneal Ambulatorial Continua (CAPD).</option>
+            <option value="Paciente portador de IRC em tratamento conservador.">Paciente portador de IRC em tratamento conservador.</option>
+        </select>
+    
+        <select name="" id="emUso">
+            <option value="s">SIM - Em uso</option>
+            <option value="n">NÃO</option>
+        </select>
+    
+        <select name="" id="medico">
+            <option value="Eberaldo Severiano Domingos">Eberaldo Severiano Domingos</option>
+        </select>
+    
+        
+        
+    
+        <div>
+            <select name="" id="tratamento">
+                <option value="c">Conservador</option>
+                <option value="dp">Dialise Peritoneal</option>
+                <option value="hd">Hemodialise</option>
+            </select>
+    
+            <select name="" id="primeiroTratamentoA">
+                <option value="s">Primeiro tratamento com Alfaepoetina</option>
+                <option value="n">Não é o primeiro tratamento</option>
+            </select>
+            <select name="" id="primeiroTratamentoS">
+                <option value="s">Primeiro tratamento com Sacarato</option>
+                <option value="n">Não é o primeiro tratamento</option>
+            </select>
+            <select name="" id="usouMedicamento" hidden>
+                <option value="s">SIM - Usou medicamento fornecido pelo SUS</option>
+                <option value="n">NÂO - Não usou medicamento fornecido pelo sus</option>
+            </select>
+            <label for="">Estagio da DRC</label>
+            <select name="" id="estagioDrc">
+                <option value="V">V</option>
+                <option value="IV">IV</option>
+                <option value="III">III</option>
+                <option value="II">II</option>
+            </select>
         </div>
     </div>
-
-    <hr>
-
-    <div>
-        <select name="" id="tratamento">
-            <option value="c">Conservador</option>
-            <option value="dp">Dialise Peritoneal</option>
-            <option value="hd">Hemodialise</option>
-        </select>
-
-        <select name="" id="primeiroTratamentoA">
-            <option value="s">Primeiro tratamento com Alfaepoetina</option>
-            <option value="n">Não é o primeiro tratamento</option>
-        </select>
-        <select name="" id="primeiroTratamentoS">
-            <option value="s">Primeiro tratamento com Sacarato</option>
-            <option value="n">Não é o primeiro tratamento</option>
-        </select>
-        <select name="" id="usouMedicamento">
-            <option value="s">SIM - Usou medicamento fornecido pelo SUS</option>
-            <option value="n">NÂO - Não usou medicamento fornecido pelo sus</option>
-        </select>
-        <label for="">Estagio da DRC</label>
-        <select name="" id="estagioDrc">
-            <option value="V">V</option>
-            <option value="IV">IV</option>
-            <option value="III">III</option>
-            <option value="II">II</option>
-        </select>
-    </div>
+    
+    
 
     <button onclick="anemiaCombinado()">Gerar Alfaepoetina + sacarato</button>
     <button onclick="alfaepoetina()">Gerar Alfaepoetina</button>
